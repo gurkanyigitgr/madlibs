@@ -1,3 +1,145 @@
-/**
- * Your CSS goes here.
- */
+@property --degree {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 10deg;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Bebas Neue", cursive;
+  background: url("./background.jpg") center center/cover no-repeat;
+  color: #fff;
+  position: relative;
+  z-index: 999;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.53;
+  z-index: -1;
+}
+.madLibsEdit {
+  height: 100vh;
+}
+.header {
+  font-size: 5rem;
+  letter-spacing: 10px;
+}
+.span {
+  color: orangered;
+}
+.container {
+  height: 100%;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit__section-card {
+  width: 70%;
+  height: 60%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #000;
+  text-align: center;
+  border-radius: 40px;
+}
+.edit__section-card::before {
+  content: "";
+  position: absolute;
+  width: 102%;
+  height: 102%;
+  top: -1%;
+  left: -1%;
+  background: linear-gradient(
+    var(--degree),
+    hsl(235, 54%, 20%) 20%,
+    hsl(235, 82%, 56%) 40%,
+    hsl(235, 54%, 20%) 60%,
+    hsl(235, 54%, 20%) 80%,
+    hsl(235, 54%, 20%) 100%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  animation: spin 5s infinite ease-in-out;
+  will-change: contents;
+}
+.edit__section-card::after {
+  content: "";
+  position: absolute;
+  width: 105%;
+  height: 105%;
+  top: -1%;
+  left: -1%;
+  background: linear-gradient(
+    var(--degree),
+    hsl(235, 54%, 20%) 20%,
+    hsl(235, 60%, 37%) 40%,
+    hsl(235, 48%, 45%) 60%,
+    hsl(235, 82%, 56%) 80%,
+    hsl(235, 62%, 55%) 100%
+  );
+  border-radius: inherit;
+  filter: blur(20px);
+  z-index: -2;
+  animation: spin 5s infinite ease-in-out;
+  will-change: contents;
+}
+@keyframes spin {
+  0% {
+    --degree: 1deg;
+  }
+  100% {
+    --degree: 360deg;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+.form > label {
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+}
+.form > input {
+  height: 33px;
+  width: 250px;
+  border: 2px solid orangered;
+}
+.edit__container-button {
+  color: white;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  border: none;
+  background: orangered;
+  padding: 8px 60px 6px;
+  cursor: pointer;
+  box-shadow: 1px 10px 30px hsla(235, 82%, 56%, 0.699);
+  transition: 0.8s all ease;
+  margin-top: 2rem;
+}
+.edit__container-button:hover {
+  transform: translateY(2px);
+  opacity: 0.7;
+  box-shadow: 1px -10px 30px hsla(235, 82%, 56%, 0.699);
+}
