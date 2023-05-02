@@ -1,49 +1,76 @@
-/**
- * Complete the implementation of parseStory.
- *
- * parseStory retrieves the story as a single string from story.txt
- * (I have written this part for you).
- *
- * In your code, you are required (please read this carefully):
- * - to return a list of objects
- * - each object should definitely have a field, `word`
- * - each object should maybe have a field, `pos` (part of speech)
- *
- * So for example, the return value of this for the example story.txt
- * will be an object that looks like so (note the comma! periods should
- * be handled in the same way).
- *
- * Input: "Louis[n] went[v] to the store[n], and it was fun[a]."
- * Output: [
- *  { word: "Louis", pos: "noun" },
- *  { word: "went", pos: "verb", },
- *  { word: "to", },
- *  { word: "the", },
- *  { word: "store", pos: "noun" }
- *  { word: "," }
- *  ....
- *
- * There are multiple ways to do this, but you may want to use regular expressions.
- * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
- */
-function parseStory(rawStory) {
-  // Your code here.
-  return {}; // This line is currently wrong :)
-}
+const editMadLibs = document.querySelector(".madLibsEdit");
+const previewMadLibs = document.querySelector(".madLibsPreview");
 
-/**
- * All your other JavaScript code goes here, inside the function. Don't worry about
- * the `then` and `async` syntax for now.
- *
- * NOTE: You should not be writing any code in the global namespace EXCEPT
- * declaring functions. All code should either:
- * 1. Be in a function.
- * 2. Be in .then() below.
- *
- * You'll want to use the results of parseStory() to display the story on the page.
- */
-getRawStory()
-  .then(parseStory)
-  .then((processedStory) => {
-    console.log(processedStory);
-  });
+let container = document.createElement("div");
+editMadLibs.appendChild(container);
+container.classList.add("container");
+
+let header = document.createElement("h1");
+container.appendChild(header);
+header.textContent = "Mad";
+header.classList.add("header");
+
+let span = document.createElement("span");
+header.appendChild(span);
+span.textContent = "Libs";
+span.classList.add("span");
+let editSectionCard = document.createElement("div");
+container.appendChild(editSectionCard);
+editSectionCard.classList.add("edit__section-card");
+
+let editContainer = document.createElement("div");
+editSectionCard.appendChild(editContainer);
+editContainer.classList.add("edit__container");
+
+let form = document.createElement("form");
+editContainer.appendChild(form);
+form.classList.add("form");
+
+let editContainerLabel = document.createElement("label");
+editContainerLabel.htmlFor = "noun1";
+form.appendChild(editContainerLabel);
+editContainerLabel.textContent = "Think of a noun :";
+
+let editContainerInput = document.createElement("input");
+editContainerInput.type = "text";
+form.appendChild(editContainerInput);
+editContainerInput.id = "noun1";
+editContainerInput.classList.add("edit__container-input");
+
+let editContainerLabel2 = document.createElement("label");
+editContainerLabel2.htmlFor = "noun2";
+form.appendChild(editContainerLabel2);
+editContainerLabel2.textContent = "Think of another noun :";
+
+let editContainerInput2 = document.createElement("input");
+editContainerInput2.type = "text";
+form.appendChild(editContainerInput2);
+editContainerInput2.id = "noun2";
+editContainerInput2.classList.add("edit__container-input");
+
+let editContainerLabel3 = document.createElement("label");
+editContainerLabel3.htmlFor = "verb1";
+form.appendChild(editContainerLabel3);
+editContainerLabel3.textContent = "Think of a verb :";
+
+let editContainerInput3 = document.createElement("input");
+editContainerInput3.type = "text";
+form.appendChild(editContainerInput3);
+editContainerInput3.id = "verb1";
+editContainerInput3.classList.add("edit__container-input");
+
+let editContainerLabel4 = document.createElement("label");
+editContainerLabel4.htmlFor = "verb2";
+form.appendChild(editContainerLabel4);
+editContainerLabel4.textContent = "Think of another verb :";
+
+let editContainerInput4 = document.createElement("input");
+editContainerInput4.type = "text";
+form.appendChild(editContainerInput4);
+editContainerInput4.id = "verb2";
+editContainerInput4.classList.add("edit__container-input");
+
+let editContainerButton = document.createElement("button");
+form.appendChild(editContainerButton);
+editContainerButton.textContent = "Submit";
+editContainerButton.classList.add("edit__container-button");
